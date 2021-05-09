@@ -35,6 +35,7 @@
       showPrintMargin: false,
       tabSize: 2,
     });
+    ace.config.set("basePath", "https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/");
   }
 
   tabHeaders.forEach((headers, index) => {
