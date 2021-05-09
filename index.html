@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bee</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+
+  <div class="editor">
+    <div class="editor__header">
+      <div class="editor__header-column logo"><img src="favicon.ico" alt="">Bee</div>
+      <div class="editor__header-column center">
+        <div class="button" id="start-button"><img src="images/play.svg" alt=""></div>
+        <div class="button disabled" id="stop-button"><img src="images/pause.svg" alt=""></div>
+      </div>
+      <div class="editor__header-column right">
+        <label class="button" id="open-button"><input type="file" id="file-dialog" accept="application/json"><img src="images/open.svg" alt=""></label>
+        <div class="button" id="save-button"><img src="images/save.svg" alt=""></div>
+        <div class="button" id="export-button"><img src="images/export.svg" alt=""></div>
+        <div class="button" id="new-button"><img src="images/broom.svg" alt=""></div>
+        <div class="button" id="info-button"><img src="images/info.svg" alt=""></div>
+      </div>
+    </div>
+    <div class="editor__main">
+      <div class="editor__input">
+        <div class="editor__tab-headers">
+          <div class="editor__tab-header active">Assets</div>
+          <div class="editor__tab-header">Start</div>
+          <div class="editor__tab-header">Update</div>
+          <div class="editor__tab-header">Draw</div>
+        </div>
+        <div class="editor__tab-contents">
+          <div class="editor__tab-content active" id="editor-assets">
+
+            <label>
+              <input type="file" id="asset-add-image" accept="image/*">
+              <div class="btn">Add Image</div>
+            </label>
+
+            <label>
+              <input type="file" id="asset-add-sound" accept="audio/*">
+              <div class="btn">Add Sound</div>
+            </label>
+
+            <div id="assets"></div>
+
+          </div>
+          <div class="editor__tab-content" id="start-fn"></div>
+          <div class="editor__tab-content" id="update-fn"></div>
+          <div class="editor__tab-content" id="draw-fn"></div>
+        </div>
+      </div>
+      <div class="editor__output">
+        <div class="editor__tab-headers">
+          <div class="editor__tab-header active">Preview</div>
+          <div class="editor__tab-header">Console</div>
+        </div>
+        <div class="editor__tab-contents">
+          <div class="editor__tab-content active">
+            <canvas tabindex="0"></canvas>
+          </div>
+          <div class="editor__tab-content"><div id="editor-console"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="editor__footer">
+      <div class="editor__footer-column" id="footer-one"></div>
+      <div class="editor__footer-column right" id="footer-three"></div>
+    </div>
+  </div>
+
+  <script src="http://ace.c9.io/build/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="script.js"></script>
+  
+</body>
+</html>
