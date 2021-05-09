@@ -1,0 +1,99 @@
+@import 'variables';
+@import 'reset';
+@import 'layout';
+
+.logo {
+  font-size: 18px;
+  color: $color-active-border;
+
+  img {
+    width: $logo-size;
+    height: $logo-size;
+    margin-right: 0.75rem;
+  }
+}
+
+#start-fn,
+#update-fn,
+#draw-fn {
+  font-size: 0.95rem;
+  padding: 1.5rem !important;
+  line-height: 1.5;
+}
+
+#editor-console {
+  font-family: monospace;
+  padding: 1.5rem;
+  min-height: 100%;
+  line-height: 1.75;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  color: #fff;
+  
+  p {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    background-color: rgba($color-one, 0.5);
+  }
+}
+
+#editor-assets {
+  padding: 1.5rem;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
+.asset {
+  @extend %flex;
+  @extend %flex-ac;
+  @extend %radius;
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+  background-color: $color-one;
+  color: $color-gray;
+
+  .image {
+    @extend %flex;
+    @extend %flex-ac;
+    @extend %flex-jc;
+    @extend %border-all;
+    width: 80px;
+    height: 80px;
+    margin-right: 0.75rem;
+  
+    img {
+      max-width: 64px;
+    }
+  }
+
+  .info {
+    @extend %flex;
+    @extend %flex-column;
+
+    span.name {
+      color: #ccc;
+      margin-bottom: 0.25rem;
+    }
+
+    span.time {
+      margin-top: 0.25rem;
+    }
+
+    span.type {
+      font-size: 0.95rem;
+    }
+  }
+
+  span.size {
+    margin-left: auto;
+  }
+
+  button {
+    margin-left: auto;
+  }
+}
+
+.ace-monokai .ace_gutter {
+  background-color: $color-one;
+  color: $color-gray;
+}

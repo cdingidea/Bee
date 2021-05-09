@@ -1,0 +1,133 @@
+.editor {
+  @extend %flex;
+  @extend %flex-column;
+  @extend %width-full;
+  @extend %height-full;
+}
+
+.editor__header,
+.editor__footer {
+  @extend %flex;
+  @extend %border-bottom;
+}
+
+.editor__header {
+  height: $header-height;
+  min-height: $header-height;
+}
+
+.editor__footer {
+  @extend %border-top;
+  height: $footer-height;
+  min-height: $footer-height;
+  color: $color-gray;
+
+  span {
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    background-color: rgba($color-active-border, 0.125);
+    color: #fff;
+    
+    b {
+      color: $color-active-border;
+    }
+
+    &.error {
+      background-color: rgba(tomato, 0.125);
+    }
+
+    &.error,
+    &.error b {
+      color: tomato;
+    }
+  }
+
+  span + span {
+    margin-left: 0.75rem;
+  }
+}
+
+.editor__header-column,
+.editor__footer-column {
+  @extend %flex;
+  @extend %flex-ac;
+  padding: 0 0.75rem;
+
+  &.center {
+    @extend %flex-jc;
+  }
+
+  &.right {
+    justify-content: flex-end;
+  }
+}
+
+.editor__header-column,
+.editor__footer-column:first-child {
+  @extend %flex-one;
+}
+
+.editor__main {
+  @extend %flex;
+  @extend %flex-one;
+  max-height: 100%;
+}
+
+.editor__input {
+  @extend %flex-one;
+}
+
+.editor__output {
+  @extend %flex-one;
+  @extend %border-left;
+}
+
+.editor__input,
+.editor__output {
+  @extend %flex;
+  @extend %flex-column;
+}
+
+.editor__tab-headers {
+  @extend %flex;
+  @extend %border-bottom;
+  height: $tab-header-height;
+}
+
+.editor__tab-contents {
+  @extend %flex-one;
+}
+
+.editor__tab-header {
+  @extend %flex;
+  @extend %flex-ac;
+  @extend %flex-jc;
+  @extend %border-right;
+  @extend %transition;
+  @extend %no-select;
+  cursor: pointer;
+  padding: 0 0.75rem;
+  min-width: $tab-header-min-width;
+  border-top: 1.5px solid transparent;
+  color: $color-gray;
+  
+  &:hover {
+    color: $color-text;
+  }
+
+  &.active {
+    border-top-color: $color-active-border;
+    background-color: $color-two;
+    color: $color-text;
+  }
+}
+
+.editor__tab-content {
+  @extend %height-full;
+  display: none;
+  background-color: $color-two !important;
+  
+  &.active {
+    display: block;
+  }
+}
