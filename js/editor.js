@@ -69,7 +69,9 @@
   const fileDialogElement = document.getElementById('file-dialog');
   const assetsElement = document.getElementById('assets');
   const addImageAssetInput = document.getElementById('asset-add-image');
+  const addImageURLAssetButton = document.getElementById('asset-add-image-url');
   const addSoundAssetInput = document.getElementById('asset-add-sound');
+  const addSoundURLAssetButton = document.getElementById('asset-add-sound-url');
   const consoleElement = document.getElementById('editor-console');
   const canvasElement = document.querySelector('canvas');
   const canvasContext = canvasElement.getContext('2d');
@@ -673,6 +675,21 @@ addImageAssetInput.addEventListener('change', () => {
   reader.readAsDataURL(addImageAssetInput.files[0]);
 });
 
+addImageURLAssetButton.addEventListener('click', () => {
+  const assetName = prompt('Image asset name');
+  const assetURL = prompt('Image URL');
+  const data = {
+    url: assetURL,
+    type: 'image',
+    obj: new Image(),
+  };
+  data.obj.addEventListener('load', () => {
+    addImageAssetElement(data, assetName, data.obj);
+    ASSETS[assetName] = data;
+  });
+  data.obj.src = assetURL;
+});
+
 addSoundAssetInput.addEventListener('change', () => {
   const assetName = prompt('Sound asset name');
   const data = {
@@ -688,6 +705,20 @@ addSoundAssetInput.addEventListener('change', () => {
     saveData();
   });
   reader.readAsDataURL(addSoundAssetInput.files[0]);
+});
+
+addSoundURLAssetButton.addEventListener('click', () => {
+  const assetName = prompt('Sound asset name');
+  const assetURL = prompt('Sound URL');
+  const data = {
+    url: assetURL,
+    type: 'sound',
+    obj: new Audio(assetURL),
+  };
+  data.obj.addEventListener('loadeddata', () => {
+    addSoundAssetElement(data, assetName, data.obj);
+    ASSETS[assetName] = data;
+  });
 });
 
 document.getElementById('info-button').addEventListener('click', () => {
