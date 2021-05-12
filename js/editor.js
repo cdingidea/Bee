@@ -673,7 +673,6 @@ addImageAssetInput.addEventListener('change', () => {
   reader.readAsDataURL(addImageAssetInput.files[0]);
 });
 
-
 addSoundAssetInput.addEventListener('change', () => {
   const assetName = prompt('Sound asset name');
   const data = {
@@ -690,7 +689,6 @@ addSoundAssetInput.addEventListener('change', () => {
   });
   reader.readAsDataURL(addSoundAssetInput.files[0]);
 });
-
 
 document.getElementById('info-button').addEventListener('click', () => {
   alert(`Bee v${VERSION}`);
