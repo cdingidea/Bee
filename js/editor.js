@@ -686,6 +686,7 @@ addImageURLAssetButton.addEventListener('click', () => {
   data.obj.addEventListener('load', () => {
     addImageAssetElement(data, assetName, data.obj);
     ASSETS[assetName] = data;
+    saveData();
   });
   data.obj.src = assetURL;
 });
@@ -718,6 +719,7 @@ addSoundURLAssetButton.addEventListener('click', () => {
   data.obj.addEventListener('loadeddata', () => {
     addSoundAssetElement(data, assetName, data.obj);
     ASSETS[assetName] = data;
+    saveData();
   });
 });
 
